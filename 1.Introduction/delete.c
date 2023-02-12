@@ -1,11 +1,11 @@
 /*
  * =====================================================================================
  *
- *       Filename:  insertion_op.c
+ *       Filename:  deletion_op.c
  *
- *    Description: Insertion operation - insert one or more data into an array
+ *    Description: Delete items from an array
  *
- *        Created:  02/12/2023 12:00:02 PM
+ *        Created:  02/12/2023 12:20:13 PM
  *       Compiler:  gcc
  *
  *         Author:  Alex Papadopoulos (ACP), csd4557@csd.uoc.gr
@@ -13,27 +13,26 @@
  * =====================================================================================
  */
 #include <stdio.h>
-
-int main()
+int main(void)
 {
 	int arr[] = { 1, 3, 5, 7, 9 };
-	int item = 10, k = 3, n = 5;
-	int i = 0, j = n;
+	int k = 3, n = 5;
+	int i, j;
 	printf("Original array:\n");
 	for (i = 0; i < n; i++) {
 		printf("arr[%d] = %d\n", i, arr[i]);
 	}
-	//increase space by one to insert new item
-	n = n + 1;
-	//Shifting all items to the right from the value k and rest
-	while (j >= k) {
-		arr[j + 1] = arr[j];
-		j = j - 1;
+
+	j = k;
+	//moving items to the left while j<n
+	while (j < n) {
+		arr[j - 1] = arr[j];
+		j += 1;
 	}
-	arr[k] = item;
-	printf("Array after insert:\n");
+	//make room minus 1 to print out correctly
+	n -= 1;
+	printf("Array after deletion:\n");
 	for (i = 0; i < n; i++) {
 		printf("arr[%d] = %d\n", i, arr[i]);
 	}
 }
-
