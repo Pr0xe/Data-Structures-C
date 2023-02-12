@@ -1,2 +1,2 @@
-# Data-Structures-C
-Programming concepts in data structures in C language
+# Data Structures C
+Data structures concepts in C programming Language explained
